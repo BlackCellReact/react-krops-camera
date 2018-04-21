@@ -1,0 +1,52 @@
+buildscript {
+  repositories {
+    jcenter()
+    maven {
+      url 'https://maven.google.com'
+    }
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.0.0'
+  }
+}
+
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.1"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0.0"
+    }
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://maven.google.com'
+    }
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    implementation 'com.facebook.react:react-native:+'
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation 'com.android.support:exifinterface:27.0.1'
+    implementation 'com.drewnoakes:metadata-extractor:2.9.1'
+    implementation 'com.google.android.gms:play-services-vision:11.8.0'
+    implementation 'com.github.react-native-community:cameraview:eb9f726215bbbfcc03a54db92e480d4d02e0c001'
+}
